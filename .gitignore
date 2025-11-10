@@ -1,0 +1,11 @@
+node_modules/
+.next/
+.env*
+npm-debug.log*
+dist/
+/.cache/
+coverage/
+data/db.json
+/.vercel/
+DS_Store
+*.log
