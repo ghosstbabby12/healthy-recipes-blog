@@ -21,7 +21,7 @@ export default function Home({ t }) {
       case 'new': return 'Novedades'
       case 'cooking': return 'Cocinar'
       case 'tools': return 'Utensilios'
-      default: return 'Recetas destacadas'
+      default: return 'Mis Creaciones Dulces'
     }
   }
 
@@ -29,7 +29,7 @@ export default function Home({ t }) {
     <div className="site-container">
       <header className="site-header">
         <div className="topbar">
-          <div className="social">🍏🥗</div>
+          <div className="social">🧁💚</div>
           <div className="lang">
             <Link href="/" locale="es">ES</Link>
             {' | '}
@@ -38,7 +38,7 @@ export default function Home({ t }) {
         </div>
         <div className="brand">
           <h1>{t.siteTitle}</h1>
-          <p className="subtitle">Recetas saludables, fáciles y deliciosas</p>
+          <p className="subtitle">Repostería saludable inspirada en tradición familiar 🧁</p>
         </div>
         <nav className="main-nav">
           <Link href="/?filter=popular" className={query.filter === 'popular' ? 'active' : ''}>
@@ -60,7 +60,7 @@ export default function Home({ t }) {
         <section className="hero">
           <div className="hero-inner">
             <h2>{getSectionTitle()}</h2>
-            <p>Platos balanceados y sabrosos para tu día a día</p>
+            <p>Postres y recetas dulces que cuidan tu salud y alimentan tu alma</p>
           </div>
         </section>
 
@@ -72,7 +72,7 @@ export default function Home({ t }) {
                   <div className="card-overlay">
                     <span className="view-recipe">Ver receta →</span>
                   </div>
-                  <span className="card-badge">Saludable</span>
+                  <span className="card-badge">Fit & Dulce</span>
                 </div>
                 <div className="card-body">
                   <h3>{r.title[locale] || r.title['es']}</h3>
@@ -91,29 +91,30 @@ export default function Home({ t }) {
       <footer className="site-footer">
         <div className="footer-content">
           <div className="footer-section">
-            <h4 className="footer-title">🍏 {t.siteTitle}</h4>
-            <p className="footer-desc">Recetas saludables para una vida mejor</p>
+            <h4 className="footer-title">🧁 {t.siteTitle}</h4>
+            <p className="footer-desc">Mi pasión por la repostería nace de las enseñanzas de mi padre. Combinando tradición familiar con un estilo de vida saludable y activo.</p>
           </div>
           <div className="footer-section">
-            <h4 className="footer-title">Navegación</h4>
+            <h4 className="footer-title">Mi Filosofía</h4>
             <ul className="footer-links">
-              <li><Link href="/?filter=popular">Lo más buscado</Link></li>
-              <li><Link href="/?filter=new">Novedades</Link></li>
-              <li><Link href="/?filter=cooking">Cocinar</Link></li>
+              <li><a href="#">🏃‍♀️ Deporte & Nutrición</a></li>
+              <li><a href="#">💚 Vida Saludable</a></li>
+              <li><a href="#">👨‍🍳 Tradición Familiar</a></li>
+              <li><a href="#">🍰 Repostería Consciente</a></li>
             </ul>
           </div>
           <div className="footer-section">
-            <h4 className="footer-title">Síguenos</h4>
+            <h4 className="footer-title">Sígueme</h4>
             <div className="social-links">
-              <a href="#" className="social-icon">📘</a>
-              <a href="#" className="social-icon">📸</a>
-              <a href="#" className="social-icon">🐦</a>
-              <a href="#" className="social-icon">📌</a>
+              <a href="#" className="social-icon" title="Facebook">📘</a>
+              <a href="#" className="social-icon" title="Instagram">📸</a>
+              <a href="#" className="social-icon" title="Twitter">🐦</a>
+              <a href="#" className="social-icon" title="Pinterest">📌</a>
             </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} {t.siteTitle}. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} {t.siteTitle}. Hecho con amor y dedicación 💚</p>
         </div>
       </footer>
     </div>
