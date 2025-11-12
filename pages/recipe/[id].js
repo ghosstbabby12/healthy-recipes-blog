@@ -14,33 +14,48 @@ export default function RecipePage({ recipe, t }) {
   const { locale } = useRouter()
 
   return (
-    <div style={{ maxWidth: 900, margin: '0 auto', padding: 20 }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <h1>{recipe.title[locale] || recipe.title['es']}</h1>
-          <p style={{ color: '#666' }}>{t.siteTitle}</p>
+    <div className="recipe-container">
+      <header className="recipe-header">
+        <div className="recipe-title-section">
+          <h1 className="recipe-title">{recipe.title[locale] || recipe.title['es']}</h1>
+          <p className="recipe-subtitle">{t?.siteTitle || 'Recetas Saludables'}</p>
         </div>
-        <div>
-          <Link href="/">← Volver</Link>
-        </div>
+        <Link href="/" className="back-link">
+          <span className="back-arrow">←</span> Volver
+        </Link>
       </header>
 
-      <main style={{ marginTop: 16 }}>
-        <img src={recipe.photo || '/placeholder.png'} alt="photo" style={{ width: '100%', maxHeight: 420, objectFit: 'cover', borderRadius: 6 }} />
+      <main className="recipe-main">
+        <div className="recipe-image-wrapper">
+          <img
+            src={recipe.photo || '/placeholder.png'}
+            alt={recipe.title[locale] || recipe.title['es']}
+            className="recipe-image"
+          />
+        </div>
 
-        <section style={{ display: 'flex', gap: 24, marginTop: 20 }}>
-          <div style={{ flex: 1 }}>
-            <h3>{t.ingredients}</h3>
-            <ul>
+        <section className="recipe-content">
+          <div className="ingredients-section">
+            <h3 className="section-title">
+              <span className="icon">🥗</span>
+              {t?.ingredients || 'Ingredientes'}
+            </h3>
+            <ul className="ingredients-list">
               {recipe.ingredients.map((ing, i) => (
-                <li key={i}>{ing.amount} — {ing.name[locale] || ing.name['es']}</li>
+                <li key={i} className="ingredient-item">
+                  <span className="ingredient-amount">{ing.amount}</span>
+                  <span className="ingredient-name">{ing.name[locale] || ing.name['es']}</span>
+                </li>
               ))}
             </ul>
           </div>
 
-          <div style={{ flex: 2 }}>
-            <h3>{t.instructions}</h3>
-            <p>{recipe.instructions[locale] || recipe.instructions['es']}</p>
+          <div className="instructions-section">
+            <h3 className="section-title">
+              <span className="icon">👨‍🍳</span>
+              {t?.instructions || 'Instrucciones'}
+            </h3>
+            <p className="instructions-text">{recipe.instructions[locale] || recipe.instructions['es']}</p>
           </div>
         </section>
       </main>
