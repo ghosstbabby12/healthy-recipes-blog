@@ -720,3 +720,204 @@ a {
     margin-top: 40px;
   }
 }
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle.skeleton {
+  width: 44px;
+  height: 36px;
+  background: rgba(0, 0, 0, 0.05);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.sun-icon,
+.moon-icon {
+  transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover .sun-icon,
+.dark-mode-toggle:hover .moon-icon {
+  transform: rotate(15deg);
+}
+
+/* Dark Mode Styles */
+.dark {
+  background: #0f0f0f;
+}
+
+.dark body {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.dark .site-container {
+  background: #1a1a1a;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.dark .site-header {
+  background: #1f1f1f;
+  border-bottom-color: #333;
+}
+
+.dark .lang a {
+  color: #b0b0b0;
+}
+
+.dark .lang a:hover {
+  background: #2a2a2a;
+  color: #74c69d;
+}
+
+.dark .subtitle {
+  color: #b0b0b0;
+}
+
+.dark .main-nav a {
+  color: #b0b0b0;
+}
+
+.dark .main-nav a:hover {
+  background: #2a2a2a;
+  color: #74c69d;
+}
+
+.dark .main-nav a.active {
+  background: #2d6a4f;
+  color: white;
+}
+
+.dark .hero {
+  background: linear-gradient(135deg, #4a1942 0%, #2d4a3e 50%, #1f3d36 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark .hero h2 {
+  color: #d8f3dc;
+}
+
+.dark .hero p {
+  color: #95d5b2;
+}
+
+.dark .card {
+  background: #242424;
+  border-color: #333;
+}
+
+.dark .card:hover {
+  border-color: #ec4899;
+  box-shadow: 0 12px 32px rgba(236, 72, 153, 0.3), 0 4px 16px rgba(45, 106, 79, 0.2);
+}
+
+.dark .card-body h3 {
+  color: #e0e0e0;
+}
+
+.dark .excerpt {
+  color: #b0b0b0;
+}
+
+.dark .card-meta {
+  border-top-color: #333;
+}
+
+.dark .meta-item {
+  color: #888;
+}
+
+.dark .site-footer {
+  background: linear-gradient(135deg, #0d2818 0%, #1f3d2f 100%);
+}
+
+.dark .dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+}
+
+.dark .dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Dark mode - Página de receta */
+.dark .recipe-container {
+  background: #1a1a1a;
+}
+
+.dark .recipe-header {
+  border-bottom-color: #333;
+}
+
+.dark .recipe-title {
+  color: #74c69d;
+}
+
+.dark .recipe-subtitle {
+  color: #b0b0b0;
+}
+
+.dark .back-link {
+  background: #2a2a2a;
+  color: #74c69d;
+}
+
+.dark .back-link:hover {
+  background: #2d6a4f;
+  color: white;
+}
+
+.dark .ingredients-section,
+.dark .instructions-section {
+  background: #242424;
+  border-color: #333;
+}
+
+.dark .section-title {
+  color: #74c69d;
+}
+
+.dark .ingredient-item {
+  border-bottom-color: #333;
+}
+
+.dark .ingredient-amount {
+  color: #74c69d;
+}
+
+.dark .ingredient-name {
+  color: #d0d0d0;
+}
+
+.dark .instructions-text {
+  color: #c0c0c0;
+}
+
+.dark .recipe-image-wrapper {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}

@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import useDarkMode from '../../hooks/useDarkMode'
+import DarkModeToggle from '../../components/DarkModeToggle'
 
 export async function getServerSideProps({ params }) {
   // Import only in server-side function
@@ -12,6 +14,7 @@ export async function getServerSideProps({ params }) {
 
 export default function RecipePage({ recipe, t }) {
   const { locale } = useRouter()
+  const [isDark, toggleDarkMode, mounted] = useDarkMode()
 
   return (
     <div className="recipe-container">
@@ -20,9 +23,12 @@ export default function RecipePage({ recipe, t }) {
           <h1 className="recipe-title">{recipe.title[locale] || recipe.title['es']}</h1>
           <p className="recipe-subtitle">{t?.siteTitle || 'Recetas Saludables'}</p>
         </div>
-        <Link href="/" className="back-link">
-          <span className="back-arrow">←</span> Volver
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <DarkModeToggle isDark={isDark} toggle={toggleDarkMode} mounted={mounted} />
+          <Link href="/" className="back-link">
+            <span className="back-arrow">←</span> Volver
+          </Link>
+        </div>
       </header>
 
       <main className="recipe-main">

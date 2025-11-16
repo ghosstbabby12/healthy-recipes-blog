@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
+import useDarkMode from '../hooks/useDarkMode'
+import DarkModeToggle from '../components/DarkModeToggle'
 
 const fetcher = (url) => fetch(url).then(r => r.json())
 
@@ -9,6 +11,7 @@ export default function Home({ t }) {
   const { locale, query } = router
   const { data } = useSWR('/api/recipes', fetcher, { refreshInterval: 1000 })
   const allRecipes = data?.recipes || []
+  const [isDark, toggleDarkMode, mounted] = useDarkMode()
 
   // Por ahora, mostrar todas las recetas independientemente del filtro
   // Aquí podrías agregar lógica específica de filtrado más adelante
@@ -30,10 +33,13 @@ export default function Home({ t }) {
       <header className="site-header">
         <div className="topbar">
           <div className="social">🧁💚</div>
-          <div className="lang">
-            <Link href="/" locale="es">ES</Link>
-            {' | '}
-            <Link href="/" locale="en">EN</Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <DarkModeToggle isDark={isDark} toggle={toggleDarkMode} mounted={mounted} />
+            <div className="lang">
+              <Link href="/" locale="es">ES</Link>
+              {' | '}
+              <Link href="/" locale="en">EN</Link>
+            </div>
           </div>
         </div>
         <div className="brand">
